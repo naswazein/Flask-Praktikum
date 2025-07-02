@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <section class="form-container">
+        <h2>Your API Key</h2>
+        <div class="api-key-container">
+            <p>Use this API key in your requests to authenticate with the Jenn Skincare API.</p>
+            <div class="api-key">
+                <code>{{ api_key }}</code>
+            </div>
+            <p class="api-key-warning">Keep this key secret! Do not share it with others.</p>
+        </div>
+        
+        <h3>API Documentation</h3>
+        <div class="api-docs">
+            <p>Include this key in your API requests using the <code>X-API-Key</code> header.</p>
+            <p>Example: <code>X-API-Key: {{ api_key }}</code></p>
+            
+            <div class="api-endpoints">
+                <h4>Available Endpoints:</h4>
+                <ul>
+                    <li><code>GET /api/products</code> - Get all products</li>
+                    <li><code>GET /api/products/{id}</code> - Get a specific product</li>
+                    <li><code>POST /api/products</code> - Add a new product (requires API key)</li>
+                    <li><code>PUT /api/products/{id}</code> - Update a product (requires API key)</li>
+                    <li><code>DELETE /api/products/{id}</code> - Delete a product (requires API key)</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <a href="{{ url_for('index') }}" class="btn">Back to Home</a>
+        </div>
+    </section>
+{% endblock %}
